@@ -48,18 +48,23 @@ int isParenthesesValid(char *stringInput, StackDS *stack)
         else if (stringInput[i] == 41 || stringInput[i] == 93 || stringInput[i] == 125)
         {
             char poppedItem = pop(stack);
-            printf("%d\n", poppedItem);
-            if (!(stringInput[i] == 41 && poppedItem == 40))
+            printf("%d %d \n", stringInput[i], poppedItem);
+            if (stringInput[i] + poppedItem == 81)
             {
-                isParenthesesValid = 0;
+                isParenthesesValid = 1;
             }
-            else if (!(stringInput[i] == 93 && poppedItem == 91))
+            else if (stringInput[i] + poppedItem == 184)
             {
-                isParenthesesValid = 0;
+                isParenthesesValid = 1;
             }
-            else if (!(stringInput[i] == 125 && poppedItem == 123))
+            else if (stringInput[i] + poppedItem == 248)
+            {
+                isParenthesesValid = 1;
+            }
+            else
             {
                 isParenthesesValid = 0;
+                break;
             }
         }
     }
@@ -68,8 +73,8 @@ int isParenthesesValid(char *stringInput, StackDS *stack)
 
 int main()
 {
-    char input[] = "{This is [sandiop]}";
-    StackDS *stack = createStack(50);
+    char input[] = "(]";
+    StackDS *stack = createStack(strlen(input));
     int isValid = isParenthesesValid(input, stack);
     if (isEmpty(stack) && isValid == 1)
     {
