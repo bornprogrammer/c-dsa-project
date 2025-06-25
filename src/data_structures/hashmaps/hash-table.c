@@ -2,7 +2,7 @@
 
 #define TABLE_SIZE 10
 
-typedef struct HashItem
+typedef struct
 {
     char key[50];
     char value[50];
@@ -12,7 +12,7 @@ typedef struct HashItem
 typedef struct HashMap
 {
     HashItem **buckets;
-} Hashmap;
+} HashMap;
 
 void setHash(struct HashMap map, char key[50], int value)
 {
