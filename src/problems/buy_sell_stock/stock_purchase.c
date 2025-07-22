@@ -1,10 +1,10 @@
 #include <stdio.h>
 /**
  * @brief
- * 
+ *
  * @param stockPrices
  * @param size
- * @return int 
+ * @return int
  */
 
 int bruteForce(int *stockPrices, int size)
